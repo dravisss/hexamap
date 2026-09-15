@@ -1,0 +1,32 @@
+{
+  "name": "hexmap-studio",
+  "version": "10.3.0",
+  "private": true,
+  "type": "module",
+  "description": "Editor autocontido de mapas hexagonais local-first",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "serve": "python3 server.py",
+    "build:signature": "esbuild signature-prototype/src/main.js --bundle --format=esm --sourcemap --outfile=signature-prototype/dist/main.js",
+    "build:three-view": "npm run build:three-view:esm && npm run build:three-view:inline",
+    "build:three-view:esm": "esbuild renderers/three-view.js --bundle --format=esm --minify --sourcemap --outfile=three-view.bundle.js",
+    "build:three-view:inline": "esbuild renderers/three-view.js --bundle --format=iife --global-name=HexMapThree --minify --outfile=three-view.inline.js",
+    "build:3d": "npm run build:signature && npm run build:three-view",
+    "build:inline": "python3 build_inline.py",
+    "test": "node --test tests/*.test.mjs",
+    "smoke": "python3 browser_smoke.py",
+    "validate": "python3 validate_package.py",
+    "cli": "python3 hexmap_cli.py",
+    "release:build": "python3 scripts/build_release.py",
+    "release:check": "python3 scripts/check_release.py"
+  },
+  "dependencies": {
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

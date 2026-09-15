@@ -1,0 +1,199 @@
+{
+  "$schema": "../schemas/hexmap.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "minimal-example",
+  "title": "Mapa mínimo",
+  "description": "Exemplo pequeno para agentes.",
+  "layout": {
+    "type": "free",
+    "viewport": {
+      "x": 0,
+      "y": 0,
+      "zoom": 1
+    },
+    "axes": {
+      "xLabel": "Eixo X",
+      "xMin": 0,
+      "xMax": 10,
+      "yLabel": "Eixo Y",
+      "yMin": 0,
+      "yMax": 100,
+      "frame": {
+        "x": 250,
+        "y": 170,
+        "width": 1700,
+        "height": 980
+      }
+    }
+  },
+  "fieldDefinitions": [
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "options": [
+        "rascunho",
+        "validado"
+      ]
+    }
+  ],
+  "styleRules": {
+    "colorByField": null,
+    "colorMap": {}
+  },
+  "hexagons": [
+    {
+      "id": "a",
+      "title": "Problema",
+      "summary": "Questão que organiza o mapa.",
+      "description": "Questão que organiza o mapa.",
+      "bodyMarkdown": "## Problema\n\nDescreva o problema.",
+      "tags": [
+        "questao"
+      ],
+      "fields": {
+        "status": "rascunho"
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -1,
+      "r": 0,
+      "clusterId": "cluster-a",
+      "axisPosition": {
+        "x": 0.2,
+        "y": 0.7
+      }
+    },
+    {
+      "id": "b",
+      "title": "Evidência",
+      "summary": "Informação que sustenta a análise.",
+      "description": "Informação que sustenta a análise.",
+      "bodyMarkdown": "## Evidência",
+      "tags": [
+        "evidencia"
+      ],
+      "fields": {
+        "status": "validado"
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 0,
+      "r": 0,
+      "clusterId": "cluster-a",
+      "axisPosition": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "c",
+      "title": "Ação",
+      "summary": "Resposta ou intervenção possível.",
+      "description": "Resposta ou intervenção possível.",
+      "bodyMarkdown": "## Ação",
+      "tags": [
+        "acao"
+      ],
+      "fields": {
+        "status": "rascunho"
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 5,
+      "r": 0,
+      "clusterId": "cluster-b",
+      "axisPosition": {
+        "x": 0.8,
+        "y": 0.35
+      }
+    }
+  ],
+  "clusters": [
+    {
+      "id": "cluster-a",
+      "title": "Diagnóstico",
+      "description": "Problema e evidência.",
+      "bodyMarkdown": "## Diagnóstico",
+      "tags": [],
+      "fields": {},
+      "color": "#bf7448",
+      "label": {
+        "mode": "auto",
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    },
+    {
+      "id": "cluster-b",
+      "title": "Resposta",
+      "description": "Possível ação.",
+      "bodyMarkdown": "## Resposta",
+      "tags": [],
+      "fields": {},
+      "color": "#5f9887",
+      "label": {
+        "mode": "auto",
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "relation-1",
+      "source": "cluster-a",
+      "target": "cluster-b",
+      "label": "orienta",
+      "routing": {
+        "mode": "auto",
+        "offset": {
+          "along": 0,
+          "perpendicular": 0.2
+        }
+      }
+    }
+  ],
+  "annotations": [
+    {
+      "id": "annotation-1",
+      "type": "text",
+      "x": 900,
+      "y": 280,
+      "width": 360,
+      "title": "Como ler",
+      "bodyMarkdown": "O diagnóstico **orienta** uma resposta.",
+      "style": {
+        "variant": "editorial",
+        "fontSize": 17,
+        "align": "left"
+      }
+    }
+  ],
+  "nextEntity": 1,
+  "nextCluster": 1,
+  "nextRelation": 1,
+  "nextAnnotation": 2,
+  "paletteCursor": 2
+}

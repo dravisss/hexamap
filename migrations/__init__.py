@@ -1,0 +1,2 @@
+"""HexMap schema migration registry."""
+

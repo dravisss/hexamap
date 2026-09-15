@@ -1,0 +1,10 @@
+{
+  "format": "hexmap-workspace",
+  "version": "1.0.0",
+  "files": {
+    "hexmap.yaml": "version: 1.0.0\nid: exemplo-local-first\ntitle: Exemplo Local-first\nmanifest: .hexmap/map.json\n",
+    "notas/autonomia.md": "---\nid: autonomia\ntitle: Autonomia\ncluster: trabalho\ntags:\n  - poder\n  - decisão\nstatus: em-analise\n---\n\n# Autonomia\n\nCapacidade localizada de tomar decisões consequenciais.\n",
+    "notas/governanca.md": "---\nid: governanca\ntitle: Governança\ncluster: estrutura\ntags:\n  - acordos\nstatus: validado\n---\n\n# Governança\n\nAcordos que definem como decisões e revisões acontecem.\n",
+    ".hexmap/map.json": "{\n  \"workspaceVersion\": \"1.0.0\",\n  \"schemaVersion\": \"1.0.0\",\n  \"id\": \"exemplo-local-first\",\n  \"title\": \"Exemplo Local-first\",\n  \"layout\": {\"type\":\"free\",\"viewport\":{\"x\":0,\"y\":0,\"zoom\":1},\"axes\":{\"xLabel\":\"Eixo X\",\"xMin\":0,\"xMax\":10,\"yLabel\":\"Eixo Y\",\"yMin\":0,\"yMax\":100,\"frame\":{\"x\":250,\"y\":170,\"width\":1700,\"height\":980}}},\n  \"fieldDefinitions\": [],\n  \"styleRules\": {\"colorByField\":null,\"colorMap\":{}},\n  \"hexagons\": [{\"id\":\"autonomia\",\"sourcePath\":\"notas/autonomia.md\",\"q\":-1,\"r\":0,\"clusterId\":\"trabalho\",\"axisPosition\":null},{\"id\":\"governanca\",\"sourcePath\":\"notas/governanca.md\",\"q\":1,\"r\":0,\"clusterId\":\"estrutura\",\"axisPosition\":null}],\n  \"clusters\": [],\n  \"relations\": [],\n  \"annotations\": []\n}\n"
+  }
+}

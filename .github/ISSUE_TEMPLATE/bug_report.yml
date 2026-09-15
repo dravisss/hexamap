@@ -1,0 +1,27 @@
+name: Bug report
+description: Report a reproducible problem in HexMap Studio
+title: "[bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not attach private maps, images, tokens, or credentials. Use a minimal fixture.
+  - type: input
+    id: version
+    attributes:
+      label: Version and platform
+      placeholder: 10.3.0 · macOS 15 · Python 3.12 · Chromium 120
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      description: Include the smallest safe fixture or command and the expected/actual result.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or error code
+      description: Remove paths, cookies, tokens, and personal content.

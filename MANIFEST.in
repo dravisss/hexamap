@@ -1,0 +1,17 @@
+include LICENSE README.md SECURITY.md CONTRIBUTING.md CODE_OF_CONDUCT.md CHANGELOG.md VALIDATION.md
+include ARCHITECTURE.md AUDIT_LOOP.md IMPLEMENTATION-PLAN.md LLM_INTEGRATION.md ROUTING.md UNIVERSAL-AGENT-PLATFORM.md WORKSPACE.md
+include pyproject.toml package.json
+recursive-include schemas *.json
+recursive-include skills *.md *.py
+recursive-include examples *.json *.md *.yaml
+recursive-include contracts *.md
+recursive-include harnesses *.json *.yaml *.md
+recursive-include docs *.md
+include hexmap_export.py
+recursive-include migrations *.py *.json *.md *.yaml
+prune previews
+prune qa
+prune tests
+exclude .DS_Store
+global-exclude __pycache__
+global-exclude *.py[cod]

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hexamap.local/schemas/bundle.schema.json",
+  "type": "object",
+  "required": ["format", "version", "files"],
+  "properties": {
+    "format": {"const": "hexmap-workspace"},
+    "version": {"enum": ["1.0.0", "2.0.0"]},
+    "files": {
+      "oneOf": [
+        {"type": "object", "additionalProperties": {"type": "string"}},
+        {"type": "array", "items": {"type": "object", "required": ["path", "bytes", "sha256"], "properties": {"path": {"type": "string"}, "bytes": {"type": "integer", "minimum": 0}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}}
+      ]
+    },
+    "checksums": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
+  },
+  "additionalProperties": false
+}

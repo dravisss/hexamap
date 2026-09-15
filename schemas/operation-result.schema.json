@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hexamap.local/schemas/operation-result.schema.json",
+  "type": "object",
+  "required": ["ok", "operation", "version", "artifacts", "diagnostics"],
+  "properties": {
+    "ok": {"type": "boolean"},
+    "operation": {"type": "string"},
+    "version": {"type": "string"},
+    "artifacts": {"type": "array", "items": {"type": "string"}},
+    "diagnostics": {"type": "array", "items": {"type": "object"}},
+    "data": {},
+    "error": {
+      "type": "object",
+      "required": ["code", "message"],
+      "properties": {"code": {"type": "string"}, "message": {"type": "string"}, "details": {}},
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
