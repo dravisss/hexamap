@@ -1,10 +1,47 @@
-# HexaMap Studio V10
+# HexaMap Studio
 
 **Versão atual: 0.1.10 · beta pública · MIT**
 
-Editor autocontido de mapas hexagonais para **organizar, decompor, recombinar, relacionar e aprofundar informação** numa única superfície de trabalho.
+[![CI](https://github.com/dravisss/hexamap/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/dravisss/hexamap/actions/workflows/ci.yml)
+[![Release artifacts](https://github.com/dravisss/hexamap/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/dravisss/hexamap/actions/workflows/release.yml)
 
-A V10 mantém a superfície simples — um canvas, hexágonos, clusters e setas — e transforma o editor num workspace local-first baseado em Markdown, YAML e arquivos portáteis:
+O HexaMap é uma ferramenta **local-first de mapeamento hexagonal**. Ela transforma
+notas Markdown em um mapa visual para **organizar, decompor, recombinar,
+relacionar e aprofundar informação** numa única superfície de trabalho.
+
+Cada elemento tem uma função simples:
+
+- **hexágono** = uma ideia, nota ou unidade de informação;
+- **cluster** = um território semântico que agrupa hexágonos;
+- **relação** = uma conexão direcionada entre territórios ou ideias;
+- **anotação** = título, hipótese, legenda ou explicação livre no canvas;
+- **drawer** = o lugar para ler e editar o conteúdo Markdown completo.
+
+O conteúdo continua sendo um conjunto de arquivos Markdown. O mapa é uma
+projeção editável desse conteúdo: o texto fica nas notas, enquanto posições,
+relações, leituras e aparência ficam no manifesto `.hexmap/map.json` e em
+`.hexmap/views/`.
+
+```text
+notas/*.md + frontmatter YAML
+          │
+          ▼
+HexaMap: mapa, clusters, relações e leituras
+          │
+          ├── browser local / preview-inline.html
+          ├── CLI headless e JSON Schema
+          ├── MCP stdio para qualquer agente
+          └── bundle Markdown + layout portátil
+```
+
+Isso torna o projeto útil para qualquer agente que saiba ler e escrever
+arquivos: um agente pode produzir notas, validar um mapa, compor um layout,
+auditar a renderização ou operar o MCP sem conta, banco, cloud ou backend
+remoto obrigatório.
+
+A interface mantém a superfície simples — um canvas, hexágonos, clusters e
+setas — e acrescenta recursos progressivos baseados em Markdown, YAML e
+arquivos portáteis:
 
 - routing automático consciente de obstáculos;
 - ajuste manual e assistido de curvas;
@@ -21,6 +58,58 @@ A V10 mantém a superfície simples — um canvas, hexágonos, clusters e setas 
 
 O projeto não exige banco, conta, cloud ou backend remoto. O conteúdo continua
 em arquivos que podem ser versionados e lidos sem o HexMap.
+
+## Veja o HexaMap
+
+Uma visão geral do mapa de exemplo:
+
+![Canvas com seis clusters, hexágonos e relações direcionadas](previews/default.png)
+
+O mesmo conteúdo pode ser lido em foco, sem perder os campos estruturados:
+
+![Leitura em foco de uma nota Markdown com campos customizados](previews/reading-focus.png)
+
+Relações têm conteúdo próprio e roteamento automático ou assistido:
+
+![Drawer de relação com controles de curvatura e roteamento](previews/relation-routing.png)
+
+A busca atravessa hexágonos, clusters, relações e anotações:
+
+![Busca tipada por uma relação no mapa](previews/audit/desktop-search-all-content.png)
+
+O renderer 3D preserva o mesmo contexto editorial do mapa 2D:
+
+![Mapa 3D com relação selecionada e endpoints visíveis](previews/audit/desktop-3d-search-context-1280.png)
+
+## Primeiros cinco minutos
+
+### Abrir sem instalar
+
+Abra [`preview-inline.html`](preview-inline.html) diretamente no navegador. É
+um preview autocontido, sem CDN e sem servidor.
+
+### Rodar localmente
+
+```bash
+git clone https://github.com/dravisss/hexamap hexamap
+cd hexamap
+python3 server.py
+```
+
+Depois acesse `http://127.0.0.1:8123` ou abra `start.command` no macOS.
+
+### Testar com um mapa de exemplo
+
+```bash
+python3 hexmap_cli.py validate examples/minimal-map.json
+python3 hexmap_cli.py audit examples/organizational-system.json
+```
+
+Para um workspace Markdown, abra `examples/workspace/` no editor ou execute:
+
+```bash
+python3 hexmap_cli.py render examples/workspace -o /tmp/hexamap-preview.html
+```
 
 ## Instalação rápida
 
@@ -349,9 +438,25 @@ python3 hexmap_cli.py route examples/minimal-map.json \
   -o /tmp/routes-auto.json
 ```
 
-## Operação por LLMs
+## Skills para agentes
 
-Quatro skills cobrem o sistema de ponta a ponta:
+As quatro skills são instruções portáteis em Markdown acompanhadas de scripts
+Python pequenos. Elas não dependem de um modelo, provedor ou banco específico;
+podem ser usadas por qualquer agente capaz de seguir um contrato de arquivos e
+comandos.
+
+| Skill | Use quando você precisa de… | Entrada típica | Resultado |
+| --- | --- | --- | --- |
+| [`build-hexamap`](skills/build-hexamap/SKILL.md) | transformar material bruto em um mapa semântico | prompt, notas ou corpus Markdown | hexágonos, clusters, relações, campos, tags e anotações |
+| [`compose-hexamap`](skills/compose-hexamap/SKILL.md) | escolher uma leitura e dar forma ao mapa | mapa JSON ou workspace | honeycomb, layout livre/eixos, cores, imagens, títulos e routing |
+| [`audit-hexamap`](skills/audit-hexamap/SKILL.md) | verificar qualidade estrutural, visual e de interação | mapa, bundle ou workspace | diagnósticos, contraprovas, screenshots e veredito |
+| [`orchestrate-hexamap`](skills/orchestrate-hexamap/SKILL.md) | executar o ciclo completo de ponta a ponta | corpus Markdown + objetivo | workspace, composição, render, QA e bundle portátil |
+
+Um fluxo de agente comum é:
+
+```text
+build → compose → audit → orchestrate/publicar
+```
 
 ```text
 skills/build-hexmap
@@ -362,26 +467,26 @@ skills/orchestrate-hexmap
 
 ### `build-hexmap`
 
-Transforma material do usuário em entidades, clusters, relações, campos, tags, Markdown e anotações.
+Use esta skill para transformar material bruto em entidades, clusters, relações, campos, tags, Markdown e anotações.
 
 ### `compose-hexmap`
 
-Aplica honeycombs, layout livre ou por eixos, imagens, cores, títulos editoriais e routing.
+Use esta skill para aplicar honeycombs, layout livre ou por eixos, imagens, cores, títulos editoriais e routing.
 
 ### `audit-hexmap`
 
-Valida schema, roda auditoria estrutural, renderiza em Chromium, critica o resultado e repete o ciclo de refinamento.
+Use esta skill para validar schema, rodar auditoria estrutural, renderizar em Chromium, criticar o resultado e repetir o ciclo de refinamento.
 
 ### `orchestrate-hexmap`
 
-Executa o ciclo completo de workspace Markdown, composição, render, screenshots, QA e bundle portátil.
+Use esta skill para executar o ciclo completo de workspace Markdown, composição, render, screenshots, QA e bundle portátil.
 
-Leia `LLM_INTEGRATION.md` para o fluxo completo.
+Leia [`LLM_INTEGRATION.md`](LLM_INTEGRATION.md) para o fluxo completo.
 
 ## Estrutura do pacote
 
 ```text
-HexMap/
+hexamap/
 ├── index.html
 ├── preview-inline.html
 ├── styles.css
