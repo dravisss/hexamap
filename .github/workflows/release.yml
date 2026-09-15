@@ -25,7 +25,7 @@ jobs:
           python build_inline.py
           python scripts/build_release.py --output-dir dist --clean
           python scripts/check_release.py --dist dist
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: hexmap-release-${{ github.ref_name }}
           path: dist/
