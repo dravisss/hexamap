@@ -1,0 +1,197 @@
+{
+  "$schema": "../schemas/hexmap.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "axes-example",
+  "title": "Energia × tempo",
+  "description": "Exemplo pequeno para agentes.",
+  "layout": {
+    "type": "axes",
+    "viewport": {
+      "x": 0,
+      "y": 0,
+      "zoom": 1
+    },
+    "axes": {
+      "xLabel": "Tempo",
+      "xMin": 0,
+      "xMax": 10,
+      "yLabel": "Energia",
+      "yMin": 0,
+      "yMax": 100,
+      "frame": {
+        "x": 250,
+        "y": 170,
+        "width": 1700,
+        "height": 980
+      }
+    }
+  },
+  "fieldDefinitions": [
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "options": [
+        "rascunho",
+        "validado"
+      ]
+    },
+    {
+      "key": "time",
+      "label": "Tempo",
+      "type": "number"
+    },
+    {
+      "key": "energy",
+      "label": "Energia",
+      "type": "number"
+    }
+  ],
+  "styleRules": {
+    "colorByField": null,
+    "colorMap": {}
+  },
+  "hexagons": [
+    {
+      "id": "a",
+      "title": "Problema",
+      "summary": "Questão que organiza o mapa.",
+      "description": "Questão que organiza o mapa.",
+      "bodyMarkdown": "## Problema\n\nDescreva o problema.",
+      "tags": [
+        "questao"
+      ],
+      "fields": {
+        "time": 2,
+        "energy": 70
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -1,
+      "r": 0,
+      "clusterId": "cluster-a",
+      "axisPosition": {
+        "x": 0.2,
+        "y": 0.7
+      }
+    },
+    {
+      "id": "b",
+      "title": "Evidência",
+      "summary": "Informação que sustenta a análise.",
+      "description": "Informação que sustenta a análise.",
+      "bodyMarkdown": "## Evidência",
+      "tags": [
+        "evidencia"
+      ],
+      "fields": {
+        "time": 5,
+        "energy": 50
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 0,
+      "r": 0,
+      "clusterId": "cluster-a",
+      "axisPosition": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "id": "c",
+      "title": "Ação",
+      "summary": "Resposta ou intervenção possível.",
+      "description": "Resposta ou intervenção possível.",
+      "bodyMarkdown": "## Ação",
+      "tags": [
+        "acao"
+      ],
+      "fields": {
+        "time": 8,
+        "energy": 35
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 5,
+      "r": 0,
+      "clusterId": "cluster-b",
+      "axisPosition": {
+        "x": 0.8,
+        "y": 0.35
+      }
+    }
+  ],
+  "clusters": [
+    {
+      "id": "cluster-a",
+      "title": "Diagnóstico",
+      "description": "Problema e evidência.",
+      "bodyMarkdown": "## Diagnóstico",
+      "tags": [],
+      "fields": {},
+      "color": "#bf7448",
+      "label": {
+        "mode": "auto",
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    },
+    {
+      "id": "cluster-b",
+      "title": "Resposta",
+      "description": "Possível ação.",
+      "bodyMarkdown": "## Resposta",
+      "tags": [],
+      "fields": {},
+      "color": "#5f9887",
+      "label": {
+        "mode": "auto",
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "relation-1",
+      "source": "cluster-a",
+      "target": "cluster-b",
+      "label": "orienta",
+      "routing": {
+        "mode": "auto",
+        "offset": {
+          "along": 0,
+          "perpendicular": 0.2
+        }
+      }
+    }
+  ],
+  "annotations": [],
+  "nextEntity": 1,
+  "nextCluster": 1,
+  "nextRelation": 1,
+  "nextAnnotation": 2,
+  "paletteCursor": 2
+}

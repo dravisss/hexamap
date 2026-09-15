@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f4efe5" />
+  <meta name="description" content="HexaMap Studio V10 — mapas hexagonais local-first baseados em Markdown, frontmatter YAML e arquivos portáteis." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⬢</text></svg>">
+  <title>HexaMap Studio V10</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app">
+    <a class="skip-link" href="#workspace">Pular para o canvas</a>
+    <header class="topbar">
+      <div class="identity">
+        <span class="brand-mark">⬢</span>
+        <div>
+          <span class="eyebrow">HEXAMAP STUDIO · V10</span>
+          <strong id="mapTitle">Sistema organizacional</strong>
+        </div>
+      </div>
+
+      <div class="tool-switch" role="group" aria-label="Ferramentas">
+        <button class="tool active" data-tool="move" title="Mover e reorganizar (V)" aria-pressed="true"><span>↔</span>Mover</button>
+        <button class="tool" data-tool="connect" title="Criar relação entre clusters (C)" aria-pressed="false"><span>↗</span>Conectar</button>
+        <button class="tool" data-tool="add" title="Adicionar hexágono (H)" aria-pressed="false"><span>＋</span>Hexágono</button>
+        <button class="tool" data-tool="text" title="Adicionar texto livre (T)" aria-pressed="false"><span>¶</span>Texto</button>
+      </div>
+
+      <div class="layout-control">
+        <label for="layoutSelect">Layout</label>
+        <select id="layoutSelect">
+          <option value="territories">Territórios</option>
+          <option value="mosaic">Mosaico</option>
+          <option value="axes">Eixos</option>
+        </select>
+        <button id="mapSettingsBtn" title="Campos, estilos e layout" aria-label="Configurações do mapa" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false">⚙</button>
+      </div>
+
+      <div class="map-actions">
+        <button id="viewModeBtn" title="Alternar visualização 2D/3D" aria-label="Ativar visualização 3D" aria-pressed="false">3D</button>
+        <button class="action-with-label" id="projectBtn" title="Abrir ou salvar projeto" aria-label="Projeto" aria-haspopup="dialog" aria-controls="drawer" aria-expanded="false"><span aria-hidden="true">▣</span><strong>Projeto</strong></button>
+        <button class="action-with-label" id="searchBtn" title="Buscar no projeto" aria-label="Buscar" aria-haspopup="dialog" aria-controls="searchPanel" aria-expanded="false"><span aria-hidden="true">⌕</span><strong>Buscar</strong></button>
+        <button id="undoBtn" title="Desfazer (Ctrl/Cmd + Z)" aria-label="Desfazer">↶</button>
+        <button id="redoBtn" title="Refazer (Ctrl/Cmd + Shift + Z)" aria-label="Refazer">↷</button>
+        <button id="fitBtn" title="Ajustar mapa (0)" aria-label="Ajustar mapa ao viewport">⌗</button>
+        <button id="importBtn" title="Importar JSON" aria-label="Importar mapa JSON">⇧</button>
+        <button id="exportBtn" title="Exportar JSON" aria-label="Exportar mapa JSON">⇩</button>
+        <button id="presentationBtn" title="Abrir apresentação (P)" aria-label="Abrir apresentação">◉</button>
+        <button id="resetBtn" title="Restaurar demonstração" aria-label="Restaurar demonstração">↺</button>
+        <button id="helpBtn" title="Ajuda" aria-label="Ajuda" aria-haspopup="dialog" aria-controls="helpPopover" aria-expanded="false">?</button>
+        <button id="moreBtn" title="Mais ações" aria-label="Mais ações" aria-controls="mobileActions" aria-expanded="false">•••</button>
+      </div>
+    </header>
+
+    <main class="workspace" id="workspace" aria-label="Canvas de mapa hexagonal" tabindex="-1">
+      <div class="paper"></div>
+      <section class="canvas-empty-state" id="canvasEmptyState" hidden aria-live="polite"></section>
+      <section class="three-viewport" id="threeViewport" hidden aria-label="Visualização tridimensional do mapa">
+        <canvas id="threeCanvas" aria-hidden="true"></canvas>
+        <div class="three-labels" id="threeLabels" role="group" aria-label="Células do mapa tridimensional"></div>
+        <p class="three-mode-note">Visualização 3D conectada ao mesmo mapa local-first</p>
+      </section>
+      <div class="world" id="world">
+        <svg class="axis-layer" id="axisLayer" viewBox="0 0 2200 1400" aria-hidden="true"></svg>
+        <svg class="cluster-layer" id="clusterLayer" viewBox="0 0 2200 1400" aria-hidden="true"></svg>
+        <svg class="relation-layer" id="relationLayer" viewBox="0 0 2200 1400" aria-hidden="true"></svg>
+        <div class="cluster-label-layer" id="clusterLabelLayer"></div>
+        <div class="annotation-layer" id="annotationLayer"></div>
+        <div class="node-layer" id="nodeLayer"></div>
+      </div>
+    </main>
+
+    <div class="more-actions" id="mobileActions" role="menu" aria-label="Mais ações do mapa" hidden>
+      <button role="menuitem" data-action="searchBtn">⌕ Buscar no projeto</button><button role="menuitem" data-action="mapSettingsBtn">⚙ Configurações do mapa</button>
+      <button role="menuitem" data-action="undoBtn">↶ Desfazer</button><button role="menuitem" data-action="redoBtn">↷ Refazer</button>
+      <button role="menuitem" data-action="fitBtn">⌗ Ajustar mapa</button><button role="menuitem" data-action="importBtn">⇧ Importar JSON</button>
+      <button role="menuitem" data-action="exportBtn">⇩ Exportar JSON</button><button role="menuitem" data-action="resetBtn">↺ Restaurar demonstração</button>
+      <button role="menuitem" data-action="presentationBtn">◉ Abrir apresentação</button>
+      <button role="menuitem" data-action="helpBtn">? Ajuda</button>
+    </div>
+
+    <div class="tool-hint" id="toolHint">
+      Arraste hexágonos para separar, juntar ou recombinar clusters. Arraste o título ou o contorno para mover o cluster inteiro.
+    </div>
+
+    <div class="selection-toolbar" id="selectionToolbar" role="toolbar" aria-label="Ações da seleção" hidden>
+      <strong id="selectionCount" role="status" aria-live="polite" aria-atomic="true">0 selecionados</strong>
+      <button id="makeClusterBtn">Formar cluster</button>
+      <button id="clearSelectionBtn">Limpar</button>
+    </div>
+
+    <div class="statusbar">
+      <span id="zoomPct">100%</span>
+      <span class="separator"></span>
+      <span id="mapStats">—</span>
+      <span class="separator"></span>
+      <span id="saveStatus" role="status" aria-live="polite"><i></i> salvo localmente</span>
+    </div>
+
+    <div class="connect-banner" id="connectBanner" hidden>
+      <span id="connectText" role="status" aria-live="polite" aria-atomic="true">Selecione um hexágono ou cluster de origem</span>
+      <button id="cancelConnect">Cancelar</button>
+    </div>
+
+    <section class="search-panel" id="searchPanel" hidden role="dialog" aria-label="Busca no mapa">
+      <div class="search-head">
+        <label for="mapSearch">Buscar no projeto</label>
+        <button id="closeSearch" aria-label="Fechar busca">×</button>
+      </div>
+      <input id="mapSearch" type="search" placeholder="Título, conteúdo, tag ou campo…" autocomplete="off" />
+      <div class="search-summary" id="searchSummary" aria-live="polite">Digite para localizar hexágonos.</div>
+      <div class="search-results" id="searchResults"></div>
+    </section>
+
+    <aside class="drawer" id="drawer" role="dialog" aria-label="Detalhes do mapa" aria-hidden="true" inert hidden>
+      <div class="drawer-top-actions">
+        <button id="drawerExpand" title="Expandir leitura" aria-label="Expandir leitura" aria-expanded="false">⤢</button>
+        <button class="drawer-close" id="drawerClose" aria-label="Fechar">×</button>
+      </div>
+      <div id="drawerContent"></div>
+    </aside>
+
+    <div class="help-popover" id="helpPopover" hidden role="dialog" aria-label="Ajuda e atalhos">
+      <div class="popover-head"><strong>Como usar</strong><button id="closeHelp" aria-label="Fechar ajuda">×</button></div>
+      <p class="help-intro">O mapa é seu: arraste para organizar, abra um hexágono para ler e salve a fonte quando estiver pronto.</p>
+      <div class="help-grid">
+        <div><kbd>Arrastar hex</kbd><span>move, separa ou junta automaticamente</span></div>
+        <div><kbd>Arrastar cluster</kbd><span>move todo o honeycomb</span></div>
+        <div><kbd>Shift + clique</kbd><span>seleção múltipla</span></div>
+        <div><kbd>Conectar</kbd><span>cria seta entre dois clusters</span></div>
+        <div><kbd>Arrastar handle</kbd><span>ajusta curva manualmente</span></div>
+        <div><kbd>Texto</kbd><span>insere anotação Markdown no canvas</span></div>
+        <div><kbd>Pinçar / scroll</kbd><span>zoom contínuo no ponto indicado</span></div>
+        <div><kbd>Setas</kbd><span>move o canvas quando ele está em foco</span></div>
+        <div><kbd>+ / − / 0</kbd><span>aproxima, afasta ou enquadra o mapa</span></div>
+        <div><kbd>Ctrl/Cmd + Z</kbd><span>desfazer</span></div>
+        <div><kbd>?</kbd><span>abrir esta ajuda</span></div>
+        <div><kbd>P</kbd><span>modo apresentação</span></div>
+      </div>
+    </div>
+
+    <div class="recovery-banner" id="recoveryBanner" hidden role="region" aria-label="Recuperação de sessão" aria-live="polite" aria-atomic="true"></div>
+
+    <div class="welcome-overlay" id="welcomeOverlay" hidden>
+      <section class="welcome-card" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle" aria-describedby="welcomeDescription">
+        <div class="welcome-brand"><span class="brand-mark">⬢</span><span>HEXAMAP STUDIO</span><span class="welcome-version">V10</span></div>
+        <div class="welcome-copy"><p class="eyebrow">UM ESPAÇO PARA PENSAR COM FORMA</p><h1 id="welcomeTitle">O que você quer mapear?</h1><p id="welcomeDescription">Comece com uma tela em branco, um template ou um exemplo. Seus textos continuam sendo arquivos Markdown na sua pasta — o HexMap só organiza as relações visuais.</p><label class="welcome-title-field" for="welcomeProjectTitle"><span>Nome do projeto <em>(opcional)</em></span><input id="welcomeProjectTitle" placeholder="Ex.: Estratégia 2027" autocomplete="off" /></label></div>
+        <div class="welcome-options" role="list">
+          <button class="welcome-option featured" data-start-mode="empty"><span class="option-icon">＋</span><span><strong>Projeto vazio</strong><small>Para começar do zero, no seu ritmo.</small></span><span class="option-arrow">→</span></button>
+          <button class="welcome-option" data-start-mode="template"><span class="option-icon">✦</span><span><strong>Sistema e territórios</strong><small>Organize elementos em grupos e conecte suas relações.</small></span><span class="option-arrow">→</span></button>
+          <button class="welcome-option" data-start-mode="journey"><span class="option-icon">↝</span><span><strong>Jornada e caminhos</strong><small>Crie uma sequência contínua com hexágonos conectados.</small></span><span class="option-arrow">→</span></button>
+          <button class="welcome-option" data-start-mode="library"><span class="option-icon">≡</span><span><strong>Biblioteca de notas</strong><small>Explore Markdown por temas, sem contornos obrigatórios.</small></span><span class="option-arrow">→</span></button>
+          <button class="welcome-option" data-start-mode="demo"><span class="option-icon">◌</span><span><strong>Explorar demonstração</strong><small>Veja um mapa completo antes de criar o seu.</small></span><span class="option-arrow">→</span></button>
+          <button class="welcome-option" data-start-mode="folder"><span class="option-icon">▣</span><span><strong>Abrir projeto da pasta</strong><small>Leia notas Markdown que já existem no seu computador.</small></span><span class="option-arrow">→</span></button>
+          <button class="welcome-option" data-start-mode="bundle"><span class="option-icon">⇧</span><span><strong>Importar bundle</strong><small>Abra um pacote portátil, sem servidor ou conta.</small></span><span class="option-arrow">→</span></button>
+        </div>
+        <div class="welcome-foot"><span>Você poderá mudar de ideia depois.</span><button id="welcomeClose">Continuar com a demonstração</button></div>
+      </section>
+    </div>
+
+    <div class="tooltip" id="tooltip" hidden></div>
+    <div class="toast" id="toast" hidden role="status" aria-live="polite" aria-atomic="true"></div>
+    <input type="file" id="importInput" accept="application/json" hidden />
+    <input type="file" id="workspaceBundleInput" accept="application/json,.hexmap-workspace.json" hidden />
+    <input type="file" id="imageInput" accept="image/*" hidden />
+  </div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

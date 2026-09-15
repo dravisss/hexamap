@@ -1,0 +1,19 @@
+name: Feature request
+description: Propose a bounded improvement
+title: "[feature] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema e contexto
+      description: Explique quem precisa da mudança e qual decisão ela melhora.
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Contrato e fallback
+      description: Descreva impacto em Markdown/YAML, local-first, privacidade e compatibilidade.
+    validations:
+      required: true

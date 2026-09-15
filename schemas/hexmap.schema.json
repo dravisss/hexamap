@@ -1,0 +1,253 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hexamap.local/schemas/hexmap.schema.json",
+  "title": "HexaMap Studio Map",
+  "type": "object",
+  "required": ["schemaVersion", "id", "title", "layout", "hexagons", "clusters", "relations", "annotations"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "schemaVersion": { "type": "string", "const": "1.0.0" },
+    "workspaceVersion": { "type": "string", "const": "1.0.0" },
+    "id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "metadata": { "$ref": "#/$defs/metadata" },
+    "createdAt": { "type": "string" },
+    "updatedAt": { "type": "string" },
+    "layout": { "$ref": "#/$defs/layout" },
+    "activeViewId": { "type": "string", "minLength": 1 },
+    "views": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/view" }, "uniqueItems": true },
+    "fieldDefinitions": { "type": "array", "items": { "$ref": "#/$defs/fieldDefinition" } },
+    "styleRules": { "$ref": "#/$defs/styleRules" },
+    "hexagons": { "type": "array", "items": { "$ref": "#/$defs/hexagon" } },
+    "clusters": { "type": "array", "items": { "$ref": "#/$defs/cluster" } },
+    "relations": { "type": "array", "items": { "$ref": "#/$defs/relation" } },
+    "annotations": { "type": "array", "items": { "$ref": "#/$defs/annotation" } },
+    "nextEntity": { "type": "integer", "minimum": 0 },
+    "nextCluster": { "type": "integer", "minimum": 0 },
+    "nextRelation": { "type": "integer", "minimum": 0 },
+    "nextAnnotation": { "type": "integer", "minimum": 0 },
+    "paletteCursor": { "type": "integer", "minimum": 0 }
+  },
+  "patternProperties": { "^x-[a-z0-9-]+$": {} },
+  "additionalProperties": false,
+  "$defs": {
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "author": { "type": "string", "maxLength": 2000 },
+        "license": { "type": "string", "maxLength": 2000 },
+        "licenseUrl": { "type": "string", "maxLength": 2000 },
+        "source": { "type": "string", "maxLength": 2000 },
+        "generatedAt": { "type": "string", "maxLength": 100 }
+      },
+      "additionalProperties": false
+    },
+    "layout": {
+      "type": "object",
+      "required": ["type", "mode", "showClusterHulls", "viewport", "axes"],
+      "properties": {
+        "type": { "enum": ["free", "axes"] },
+        "mode": { "enum": ["territories", "mosaic", "axes"] },
+        "showClusterHulls": { "type": "boolean" },
+        "autoCluster": { "type": "boolean" },
+        "viewport": {
+          "type": "object",
+          "required": ["x", "y", "zoom"],
+          "properties": {
+            "x": { "type": "number" }, "y": { "type": "number" }, "zoom": { "type": "number", "exclusiveMinimum": 0 }
+          },
+          "additionalProperties": false
+        },
+        "axes": {
+          "type": "object",
+          "required": ["xLabel", "xMin", "xMax", "yLabel", "yMin", "yMax", "frame"],
+          "properties": {
+            "xLabel": { "type": "string" }, "xMin": { "type": "number" }, "xMax": { "type": "number" },
+            "yLabel": { "type": "string" }, "yMin": { "type": "number" }, "yMax": { "type": "number" },
+            "frame": {
+              "type": "object",
+              "required": ["x", "y", "width", "height"],
+              "properties": {
+                "x": { "type": "number" }, "y": { "type": "number" },
+                "width": { "type": "number", "exclusiveMinimum": 0 }, "height": { "type": "number", "exclusiveMinimum": 0 }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "view": {
+      "type": "object",
+      "required": ["id", "title", "mode", "showClusterHulls", "layout"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "mode": { "enum": ["territories", "mosaic", "axes"] },
+        "showClusterHulls": { "type": "boolean" },
+        "layout": { "$ref": "#/$defs/layout" }
+      },
+      "additionalProperties": false
+    },
+    "fieldDefinition": {
+      "type": "object",
+      "required": ["key", "label", "type"],
+      "properties": {
+        "key": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "label": { "type": "string", "minLength": 1 },
+        "type": { "enum": ["text", "long-text", "markdown", "number", "date", "boolean", "select", "multi-select", "url", "color", "image"] },
+        "options": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      },
+      "additionalProperties": true
+    },
+    "styleRules": {
+      "type": "object",
+      "properties": {
+        "colorByField": { "type": ["string", "null"] },
+        "colorMap": { "type": "object", "additionalProperties": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "image": {
+      "type": "object",
+      "properties": {
+        "src": { "type": "string" },
+        "fit": { "enum": ["cover", "contain", "fill", "scale-down"] },
+        "position": { "type": "string" },
+        "overlay": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": true
+    },
+    "visual": {
+      "type": "object",
+      "required": ["mode", "image"],
+      "properties": {
+        "mode": { "enum": ["text", "icon", "cover", "image"] },
+        "color": { "type": ["string", "null"], "pattern": "^#[0-9a-fA-F]{6}$" },
+        "image": { "$ref": "#/$defs/image" }
+      },
+      "additionalProperties": true
+    },
+    "axisPosition": {
+      "type": ["object", "null"],
+      "properties": {
+        "x": { "type": "number", "minimum": 0, "maximum": 1 },
+        "y": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "required": ["x", "y"],
+      "additionalProperties": false
+    },
+    "hexagon": {
+      "type": "object",
+      "required": ["id", "title", "summary", "bodyMarkdown", "tags", "fields", "visual", "q", "r", "clusterId", "axisPosition"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "summary": { "type": "string" },
+        "description": { "type": "string" },
+        "bodyMarkdown": { "type": "string" },
+        "sourcePath": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "fields": { "type": "object" },
+        "visual": { "$ref": "#/$defs/visual" },
+        "q": { "type": "integer" }, "r": { "type": "integer" },
+        "clusterId": { "type": ["string", "null"] },
+        "axisPosition": { "$ref": "#/$defs/axisPosition" }
+      },
+      "additionalProperties": true
+    },
+    "cluster": {
+      "type": "object",
+      "required": ["id", "title", "description", "bodyMarkdown", "tags", "fields", "color", "label"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "description": { "type": "string" },
+        "bodyMarkdown": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "fields": { "type": "object" },
+        "color": { "type": "string" },
+        "view3d": {
+          "type": "object",
+          "properties": { "x": { "type": "number" }, "z": { "type": "number" } },
+          "required": ["x", "z"],
+          "additionalProperties": false
+        },
+        "view3dMobile": {
+          "type": "object",
+          "properties": { "x": { "type": "number" }, "z": { "type": "number" } },
+          "required": ["x", "z"],
+          "additionalProperties": false
+        },
+        "label": {
+          "type": "object",
+          "properties": {
+            "mode": { "enum": ["auto", "manual"] },
+            "offsetX": { "type": "number" }, "offsetY": { "type": "number" }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "routing": {
+      "type": "object",
+      "required": ["mode", "offset"],
+      "properties": {
+        "mode": { "enum": ["auto", "assisted", "manual"] },
+        "offset": {
+          "type": "object",
+          "required": ["along", "perpendicular"],
+          "properties": {
+            "along": { "type": "number", "minimum": -1, "maximum": 1 },
+            "perpendicular": { "type": "number", "minimum": -1, "maximum": 1 }
+          },
+          "additionalProperties": false
+        },
+        "waypoints": { "type": "array", "items": { "type": "object", "required": ["x", "y"], "properties": { "x": { "type": "number" }, "y": { "type": "number" } } } },
+        "locked": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "relation": {
+      "type": "object",
+      "required": ["id", "source", "target", "sourceType", "targetType", "style", "label", "routing"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "source": { "type": "string", "minLength": 1 },
+        "target": { "type": "string", "minLength": 1 },
+        "sourceType": { "enum": ["hexagon", "cluster"] },
+        "targetType": { "enum": ["hexagon", "cluster"] },
+        "style": { "enum": ["curve", "edge"] },
+        "label": { "type": "string" },
+        "routing": { "$ref": "#/$defs/routing" }
+      },
+      "additionalProperties": true
+    },
+    "annotation": {
+      "type": "object",
+      "required": ["id", "type", "x", "y", "width", "title", "bodyMarkdown", "style"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": { "const": "text" },
+        "x": { "type": "number" }, "y": { "type": "number" },
+        "width": { "type": "number", "minimum": 80 },
+        "title": { "type": "string" },
+        "bodyMarkdown": { "type": "string" },
+        "style": {
+          "type": "object",
+          "properties": {
+            "variant": { "enum": ["editorial", "note", "label"] },
+            "fontSize": { "type": "number", "minimum": 8, "maximum": 72 },
+            "align": { "enum": ["left", "center", "right"] }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

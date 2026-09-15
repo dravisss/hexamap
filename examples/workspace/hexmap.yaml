@@ -1,0 +1,8 @@
+version: 1.0.0
+id: exemplo-local-first
+title: Exemplo Local-first
+description: Workspace mínimo baseado em Markdown.
+notes:
+  - "**/*.md"
+manifest: .hexmap/map.json
+

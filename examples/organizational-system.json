@@ -1,0 +1,1681 @@
+{
+  "$schema": "../schemas/hexmap.schema.json",
+  "schemaVersion": "1.0.0",
+  "id": "hexmap-studio-demo",
+  "title": "Sistema organizacional",
+  "description": "Mapa hexagonal editável para sistematização de conhecimento e análise de sistemas.",
+  "createdAt": "2026-08-28T22:24:08.307Z",
+  "updatedAt": "2026-08-28T22:24:08.318Z",
+  "layout": {
+    "type": "free",
+    "viewport": {
+      "x": 0,
+      "y": 0,
+      "zoom": 1
+    },
+    "axes": {
+      "xLabel": "Tempo",
+      "xMin": 0,
+      "xMax": 10,
+      "yLabel": "Energia",
+      "yMin": 0,
+      "yMax": 100,
+      "frame": {
+        "x": 250,
+        "y": 170,
+        "width": 1700,
+        "height": 980
+      }
+    }
+  },
+  "fieldDefinitions": [
+    {
+      "key": "status",
+      "label": "Status",
+      "type": "select",
+      "options": [
+        "rascunho",
+        "em-analise",
+        "validado"
+      ]
+    },
+    {
+      "key": "evidence",
+      "label": "Evidência",
+      "type": "select",
+      "options": [
+        "exploratoria",
+        "moderada",
+        "forte"
+      ]
+    },
+    {
+      "key": "time",
+      "label": "Tempo",
+      "type": "number"
+    },
+    {
+      "key": "energy",
+      "label": "Energia",
+      "type": "number"
+    }
+  ],
+  "styleRules": {
+    "colorByField": null,
+    "colorMap": {}
+  },
+  "hexagons": [
+    {
+      "id": "division",
+      "title": "Divisão do trabalho",
+      "summary": "Distribuição estrutural de atividades, responsabilidades e dependências.",
+      "description": "Distribuição estrutural de atividades, responsabilidades e dependências.",
+      "bodyMarkdown": "## Divisão do trabalho\n\nDistribuição estrutural de atividades, responsabilidades e dependências.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "work",
+        "estrutural"
+      ],
+      "fields": {
+        "status": "rascunho",
+        "evidence": "moderada",
+        "time": 1,
+        "energy": 20
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -6,
+      "r": -1,
+      "clusterId": "work",
+      "axisPosition": null
+    },
+    {
+      "id": "autonomy",
+      "title": "Autonomia",
+      "summary": "Capacidade localizada de tomar decisões consequenciais.",
+      "description": "Capacidade localizada de tomar decisões consequenciais.",
+      "bodyMarkdown": "## Autonomia\n\nCapacidade localizada de tomar decisões consequenciais.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "work",
+        "conceito"
+      ],
+      "fields": {
+        "status": "em-analise",
+        "evidence": "forte",
+        "time": 2,
+        "energy": 37
+      },
+      "visual": {
+        "mode": "icon",
+        "image": {
+          "src": "./assets/icons/autonomy.svg",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -5,
+      "r": -1,
+      "clusterId": "work",
+      "axisPosition": null
+    },
+    {
+      "id": "roles",
+      "title": "Papéis",
+      "summary": "Conjuntos relativamente estáveis de expectativas e responsabilidades.",
+      "description": "Conjuntos relativamente estáveis de expectativas e responsabilidades.",
+      "bodyMarkdown": "## Papéis\n\nConjuntos relativamente estáveis de expectativas e responsabilidades.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "work",
+        "conceito"
+      ],
+      "fields": {
+        "status": "validado",
+        "evidence": "exploratoria",
+        "time": 3,
+        "energy": 54
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -6,
+      "r": 0,
+      "clusterId": "work",
+      "axisPosition": null
+    },
+    {
+      "id": "specialization",
+      "title": "Especialização",
+      "summary": "Concentração de capacidades ou responsabilidades específicas.",
+      "description": "Concentração de capacidades ou responsabilidades específicas.",
+      "bodyMarkdown": "## Especialização\n\nConcentração de capacidades ou responsabilidades específicas.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "work",
+        "conceito"
+      ],
+      "fields": {
+        "status": "rascunho",
+        "evidence": "moderada",
+        "time": 4,
+        "energy": 71
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -7,
+      "r": 0,
+      "clusterId": "work",
+      "axisPosition": null
+    },
+    {
+      "id": "accountability",
+      "title": "Accountability",
+      "summary": "Mecanismos pelos quais decisões tornam-se imputáveis e contestáveis.",
+      "description": "Mecanismos pelos quais decisões tornam-se imputáveis e contestáveis.",
+      "bodyMarkdown": "## Accountability\n\nMecanismos pelos quais decisões tornam-se imputáveis e contestáveis.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "work",
+        "estrutural"
+      ],
+      "fields": {
+        "status": "em-analise",
+        "evidence": "forte",
+        "time": 5,
+        "energy": 88
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -7,
+      "r": -1,
+      "clusterId": "work",
+      "axisPosition": null
+    },
+    {
+      "id": "standards",
+      "title": "Padrões",
+      "summary": "Referências compartilhadas que estabilizam expectativas.",
+      "description": "Referências compartilhadas que estabilizam expectativas.",
+      "bodyMarkdown": "## Padrões\n\nReferências compartilhadas que estabilizam expectativas.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "work",
+        "conceito"
+      ],
+      "fields": {
+        "status": "validado",
+        "evidence": "exploratoria",
+        "time": 6,
+        "energy": 25
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -6,
+      "r": -2,
+      "clusterId": "work",
+      "axisPosition": null
+    },
+    {
+      "id": "interdependence",
+      "title": "Interdependência",
+      "summary": "Grau em que o trabalho de uma unidade depende de outras.",
+      "description": "Grau em que o trabalho de uma unidade depende de outras.",
+      "bodyMarkdown": "## Interdependência\n\nGrau em que o trabalho de uma unidade depende de outras.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "work",
+        "conceito"
+      ],
+      "fields": {
+        "status": "rascunho",
+        "evidence": "moderada",
+        "time": 7,
+        "energy": 42
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -5,
+      "r": -2,
+      "clusterId": "work",
+      "axisPosition": null
+    },
+    {
+      "id": "decisionrights",
+      "title": "Direitos decisórios",
+      "summary": "Distribuição da capacidade legítima de decidir.",
+      "description": "Distribuição da capacidade legítima de decidir.",
+      "bodyMarkdown": "## Direitos decisórios\n\nDistribuição da capacidade legítima de decidir.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "work",
+        "conceito"
+      ],
+      "fields": {
+        "status": "em-analise",
+        "evidence": "forte",
+        "time": 8,
+        "energy": 59
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -4,
+      "r": -2,
+      "clusterId": "work",
+      "axisPosition": null
+    },
+    {
+      "id": "localknowledge",
+      "title": "Conhecimento local",
+      "summary": "Informação situada disponível perto do trabalho real.",
+      "description": "Informação situada disponível perto do trabalho real.",
+      "bodyMarkdown": "## Conhecimento local\n\nInformação situada disponível perto do trabalho real.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "work",
+        "estrutural"
+      ],
+      "fields": {
+        "status": "validado",
+        "evidence": "exploratoria",
+        "time": 9,
+        "energy": 76
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -4,
+      "r": -1,
+      "clusterId": "work",
+      "axisPosition": null
+    },
+    {
+      "id": "workload",
+      "title": "Carga de trabalho",
+      "summary": "Distribuição de volume, intensidade e ritmo de atividade.",
+      "description": "Distribuição de volume, intensidade e ritmo de atividade.",
+      "bodyMarkdown": "## Carga de trabalho\n\nDistribuição de volume, intensidade e ritmo de atividade.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "work",
+        "conceito"
+      ],
+      "fields": {
+        "status": "rascunho",
+        "evidence": "moderada",
+        "time": 10,
+        "energy": 93
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -5,
+      "r": 0,
+      "clusterId": "work",
+      "axisPosition": null
+    },
+    {
+      "id": "authority",
+      "title": "Autoridade",
+      "summary": "Capacidade reconhecida de estabelecer decisões obrigatórias.",
+      "description": "Capacidade reconhecida de estabelecer decisões obrigatórias.",
+      "bodyMarkdown": "## Autoridade\n\nCapacidade reconhecida de estabelecer decisões obrigatórias.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "gov",
+        "conceito"
+      ],
+      "fields": {
+        "status": "em-analise",
+        "evidence": "forte",
+        "time": 1,
+        "energy": 30
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 0,
+      "r": -4,
+      "clusterId": "gov",
+      "axisPosition": null
+    },
+    {
+      "id": "mandates",
+      "title": "Mandatos",
+      "summary": "Domínios nos quais grupos ou papéis podem agir legitimamente.",
+      "description": "Domínios nos quais grupos ou papéis podem agir legitimamente.",
+      "bodyMarkdown": "## Mandatos\n\nDomínios nos quais grupos ou papéis podem agir legitimamente.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "gov",
+        "conceito"
+      ],
+      "fields": {
+        "status": "validado",
+        "evidence": "exploratoria",
+        "time": 2,
+        "energy": 47
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 1,
+      "r": -4,
+      "clusterId": "gov",
+      "axisPosition": null
+    },
+    {
+      "id": "policy",
+      "title": "Políticas",
+      "summary": "Regras gerais que delimitam escolhas recorrentes.",
+      "description": "Regras gerais que delimitam escolhas recorrentes.",
+      "bodyMarkdown": "## Políticas\n\nRegras gerais que delimitam escolhas recorrentes.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "gov",
+        "estrutural"
+      ],
+      "fields": {
+        "status": "rascunho",
+        "evidence": "moderada",
+        "time": 3,
+        "energy": 64
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 0,
+      "r": -3,
+      "clusterId": "gov",
+      "axisPosition": null
+    },
+    {
+      "id": "review",
+      "title": "Revisão",
+      "summary": "Mecanismo de examinar e contestar decisões realizadas.",
+      "description": "Mecanismo de examinar e contestar decisões realizadas.",
+      "bodyMarkdown": "## Revisão\n\nMecanismo de examinar e contestar decisões realizadas.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "gov",
+        "conceito"
+      ],
+      "fields": {
+        "status": "em-analise",
+        "evidence": "forte",
+        "time": 4,
+        "energy": 81
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -1,
+      "r": -3,
+      "clusterId": "gov",
+      "axisPosition": null
+    },
+    {
+      "id": "consent",
+      "title": "Consentimento",
+      "summary": "Validação coletiva em que objeções relevantes são tratadas.",
+      "description": "Validação coletiva em que objeções relevantes são tratadas.",
+      "bodyMarkdown": "## Consentimento\n\nValidação coletiva em que objeções relevantes são tratadas.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "gov",
+        "conceito"
+      ],
+      "fields": {
+        "status": "validado",
+        "evidence": "exploratoria",
+        "time": 5,
+        "energy": 98
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -1,
+      "r": -4,
+      "clusterId": "gov",
+      "axisPosition": null
+    },
+    {
+      "id": "delegation",
+      "title": "Delegação",
+      "summary": "Transferência delimitada de capacidade decisória.",
+      "description": "Transferência delimitada de capacidade decisória.",
+      "bodyMarkdown": "## Delegação\n\nTransferência delimitada de capacidade decisória.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "gov",
+        "conceito"
+      ],
+      "fields": {
+        "status": "rascunho",
+        "evidence": "moderada",
+        "time": 6,
+        "energy": 35
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 0,
+      "r": -5,
+      "clusterId": "gov",
+      "axisPosition": null
+    },
+    {
+      "id": "transparency",
+      "title": "Transparência",
+      "summary": "Disponibilidade de informação sobre regras e decisões.",
+      "description": "Disponibilidade de informação sobre regras e decisões.",
+      "bodyMarkdown": "## Transparência\n\nDisponibilidade de informação sobre regras e decisões.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "gov",
+        "estrutural"
+      ],
+      "fields": {
+        "status": "em-analise",
+        "evidence": "forte",
+        "time": 7,
+        "energy": 52
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 1,
+      "r": -5,
+      "clusterId": "gov",
+      "axisPosition": null
+    },
+    {
+      "id": "appeal",
+      "title": "Apelação",
+      "summary": "Caminho legítimo para revisar ou contestar decisões.",
+      "description": "Caminho legítimo para revisar ou contestar decisões.",
+      "bodyMarkdown": "## Apelação\n\nCaminho legítimo para revisar ou contestar decisões.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "gov",
+        "conceito"
+      ],
+      "fields": {
+        "status": "validado",
+        "evidence": "exploratoria",
+        "time": 8,
+        "energy": 69
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 2,
+      "r": -5,
+      "clusterId": "gov",
+      "axisPosition": null
+    },
+    {
+      "id": "automation",
+      "title": "Automação",
+      "summary": "Transferência de atividades ou decisões para sistemas técnicos.",
+      "description": "Transferência de atividades ou decisões para sistemas técnicos.",
+      "bodyMarkdown": "## Automação\n\nTransferência de atividades ou decisões para sistemas técnicos.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "tech",
+        "conceito"
+      ],
+      "fields": {
+        "status": "rascunho",
+        "evidence": "moderada",
+        "time": 9,
+        "energy": 86
+      },
+      "visual": {
+        "mode": "cover",
+        "image": {
+          "src": "./assets/icons/technology.svg",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.48
+        }
+      },
+      "q": 6,
+      "r": -7,
+      "clusterId": "tech",
+      "axisPosition": null
+    },
+    {
+      "id": "algomgmt",
+      "title": "Gestão algorítmica",
+      "summary": "Coordenação e controle mediados por sistemas computacionais.",
+      "description": "Coordenação e controle mediados por sistemas computacionais.",
+      "bodyMarkdown": "## Gestão algorítmica\n\nCoordenação e controle mediados por sistemas computacionais.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "tech",
+        "conceito"
+      ],
+      "fields": {
+        "status": "em-analise",
+        "evidence": "forte",
+        "time": 10,
+        "energy": 23
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 7,
+      "r": -7,
+      "clusterId": "tech",
+      "axisPosition": null
+    },
+    {
+      "id": "infrastructure",
+      "title": "Infraestrutura",
+      "summary": "Camada técnica que condiciona possibilidades de ação.",
+      "description": "Camada técnica que condiciona possibilidades de ação.",
+      "bodyMarkdown": "## Infraestrutura\n\nCamada técnica que condiciona possibilidades de ação.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "tech",
+        "estrutural"
+      ],
+      "fields": {
+        "status": "validado",
+        "evidence": "exploratoria",
+        "time": 1,
+        "energy": 40
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 6,
+      "r": -6,
+      "clusterId": "tech",
+      "axisPosition": null
+    },
+    {
+      "id": "interfaces",
+      "title": "Interfaces",
+      "summary": "Pontos de interação que moldam o acesso às capacidades técnicas.",
+      "description": "Pontos de interação que moldam o acesso às capacidades técnicas.",
+      "bodyMarkdown": "## Interfaces\n\nPontos de interação que moldam o acesso às capacidades técnicas.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "tech",
+        "conceito"
+      ],
+      "fields": {
+        "status": "rascunho",
+        "evidence": "moderada",
+        "time": 2,
+        "energy": 57
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 5,
+      "r": -6,
+      "clusterId": "tech",
+      "axisPosition": null
+    },
+    {
+      "id": "datafication",
+      "title": "Dataficação",
+      "summary": "Conversão de processos e comportamentos em dados.",
+      "description": "Conversão de processos e comportamentos em dados.",
+      "bodyMarkdown": "## Dataficação\n\nConversão de processos e comportamentos em dados.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "tech",
+        "conceito"
+      ],
+      "fields": {
+        "status": "em-analise",
+        "evidence": "forte",
+        "time": 3,
+        "energy": 74
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 5,
+      "r": -7,
+      "clusterId": "tech",
+      "axisPosition": null
+    },
+    {
+      "id": "surveillance",
+      "title": "Vigilância",
+      "summary": "Produção assimétrica de visibilidade sobre comportamento.",
+      "description": "Produção assimétrica de visibilidade sobre comportamento.",
+      "bodyMarkdown": "## Vigilância\n\nProdução assimétrica de visibilidade sobre comportamento.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "tech",
+        "conceito"
+      ],
+      "fields": {
+        "status": "validado",
+        "evidence": "exploratoria",
+        "time": 4,
+        "energy": 91
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 6,
+      "r": -8,
+      "clusterId": "tech",
+      "axisPosition": null
+    },
+    {
+      "id": "tooling",
+      "title": "Ferramentas",
+      "summary": "Artefatos incorporados às práticas cotidianas.",
+      "description": "Artefatos incorporados às práticas cotidianas.",
+      "bodyMarkdown": "## Ferramentas\n\nArtefatos incorporados às práticas cotidianas.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "tech",
+        "estrutural"
+      ],
+      "fields": {
+        "status": "rascunho",
+        "evidence": "moderada",
+        "time": 5,
+        "energy": 28
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 7,
+      "r": -8,
+      "clusterId": "tech",
+      "axisPosition": null
+    },
+    {
+      "id": "platforms",
+      "title": "Plataformas",
+      "summary": "Infraestruturas que intermedeiam relações e capacidades.",
+      "description": "Infraestruturas que intermedeiam relações e capacidades.",
+      "bodyMarkdown": "## Plataformas\n\nInfraestruturas que intermedeiam relações e capacidades.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "tech",
+        "conceito"
+      ],
+      "fields": {
+        "status": "em-analise",
+        "evidence": "forte",
+        "time": 6,
+        "energy": 45
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 8,
+      "r": -8,
+      "clusterId": "tech",
+      "axisPosition": null
+    },
+    {
+      "id": "coordination",
+      "title": "Coordenação",
+      "summary": "Produção de coerência entre atividades interdependentes.",
+      "description": "Produção de coerência entre atividades interdependentes.",
+      "bodyMarkdown": "## Coordenação\n\nProdução de coerência entre atividades interdependentes.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "coord",
+        "conceito"
+      ],
+      "fields": {
+        "status": "validado",
+        "evidence": "exploratoria",
+        "time": 7,
+        "energy": 62
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -6,
+      "r": 4,
+      "clusterId": "coord",
+      "axisPosition": null
+    },
+    {
+      "id": "mutualadjust",
+      "title": "Ajuste mútuo",
+      "summary": "Coordenação produzida por negociação direta.",
+      "description": "Coordenação produzida por negociação direta.",
+      "bodyMarkdown": "## Ajuste mútuo\n\nCoordenação produzida por negociação direta.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "coord",
+        "conceito"
+      ],
+      "fields": {
+        "status": "rascunho",
+        "evidence": "moderada",
+        "time": 8,
+        "energy": 79
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -5,
+      "r": 4,
+      "clusterId": "coord",
+      "axisPosition": null
+    },
+    {
+      "id": "protocols",
+      "title": "Protocolos",
+      "summary": "Sequências e regras explícitas para interações recorrentes.",
+      "description": "Sequências e regras explícitas para interações recorrentes.",
+      "bodyMarkdown": "## Protocolos\n\nSequências e regras explícitas para interações recorrentes.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "coord",
+        "estrutural"
+      ],
+      "fields": {
+        "status": "em-analise",
+        "evidence": "forte",
+        "time": 9,
+        "energy": 96
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -6,
+      "r": 5,
+      "clusterId": "coord",
+      "axisPosition": null
+    },
+    {
+      "id": "synchronization",
+      "title": "Sincronização",
+      "summary": "Alinhamento temporal entre atividades ou fluxos.",
+      "description": "Alinhamento temporal entre atividades ou fluxos.",
+      "bodyMarkdown": "## Sincronização\n\nAlinhamento temporal entre atividades ou fluxos.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "coord",
+        "conceito"
+      ],
+      "fields": {
+        "status": "validado",
+        "evidence": "exploratoria",
+        "time": 10,
+        "energy": 33
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -7,
+      "r": 5,
+      "clusterId": "coord",
+      "axisPosition": null
+    },
+    {
+      "id": "handoffs",
+      "title": "Handoffs",
+      "summary": "Transferências de trabalho, informação ou responsabilidade.",
+      "description": "Transferências de trabalho, informação ou responsabilidade.",
+      "bodyMarkdown": "## Handoffs\n\nTransferências de trabalho, informação ou responsabilidade.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "coord",
+        "conceito"
+      ],
+      "fields": {
+        "status": "rascunho",
+        "evidence": "moderada",
+        "time": 1,
+        "energy": 50
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -7,
+      "r": 4,
+      "clusterId": "coord",
+      "axisPosition": null
+    },
+    {
+      "id": "bottleneck",
+      "title": "Gargalos",
+      "summary": "Pontos cuja capacidade restringe o fluxo do sistema.",
+      "description": "Pontos cuja capacidade restringe o fluxo do sistema.",
+      "bodyMarkdown": "## Gargalos\n\nPontos cuja capacidade restringe o fluxo do sistema.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "coord",
+        "conceito"
+      ],
+      "fields": {
+        "status": "em-analise",
+        "evidence": "forte",
+        "time": 2,
+        "energy": 67
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -6,
+      "r": 3,
+      "clusterId": "coord",
+      "axisPosition": null
+    },
+    {
+      "id": "redundancy",
+      "title": "Redundância",
+      "summary": "Duplicação deliberada de capacidades para reduzir fragilidade.",
+      "description": "Duplicação deliberada de capacidades para reduzir fragilidade.",
+      "bodyMarkdown": "## Redundância\n\nDuplicação deliberada de capacidades para reduzir fragilidade.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "coord",
+        "estrutural"
+      ],
+      "fields": {
+        "status": "validado",
+        "evidence": "exploratoria",
+        "time": 3,
+        "energy": 84
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -5,
+      "r": 3,
+      "clusterId": "coord",
+      "axisPosition": null
+    },
+    {
+      "id": "feedback",
+      "title": "Feedback",
+      "summary": "Informação sobre consequências que retorna ao sistema.",
+      "description": "Informação sobre consequências que retorna ao sistema.",
+      "bodyMarkdown": "## Feedback\n\nInformação sobre consequências que retorna ao sistema.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "info",
+        "conceito"
+      ],
+      "fields": {
+        "status": "rascunho",
+        "evidence": "moderada",
+        "time": 4,
+        "energy": 21
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 0,
+      "r": 2,
+      "clusterId": "info",
+      "axisPosition": null
+    },
+    {
+      "id": "visibility",
+      "title": "Visibilidade",
+      "summary": "Grau em que estados e consequências podem ser percebidos.",
+      "description": "Grau em que estados e consequências podem ser percebidos.",
+      "bodyMarkdown": "## Visibilidade\n\nGrau em que estados e consequências podem ser percebidos.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "info",
+        "conceito"
+      ],
+      "fields": {
+        "status": "em-analise",
+        "evidence": "forte",
+        "time": 5,
+        "energy": 38
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 1,
+      "r": 2,
+      "clusterId": "info",
+      "axisPosition": null
+    },
+    {
+      "id": "signals",
+      "title": "Sinais",
+      "summary": "Indícios compactos usados para orientar atenção e ação.",
+      "description": "Indícios compactos usados para orientar atenção e ação.",
+      "bodyMarkdown": "## Sinais\n\nIndícios compactos usados para orientar atenção e ação.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "info",
+        "conceito"
+      ],
+      "fields": {
+        "status": "validado",
+        "evidence": "exploratoria",
+        "time": 6,
+        "energy": 55
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 0,
+      "r": 3,
+      "clusterId": "info",
+      "axisPosition": null
+    },
+    {
+      "id": "documentation",
+      "title": "Documentação",
+      "summary": "Registro relativamente persistente de conhecimento e decisões.",
+      "description": "Registro relativamente persistente de conhecimento e decisões.",
+      "bodyMarkdown": "## Documentação\n\nRegistro relativamente persistente de conhecimento e decisões.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "info",
+        "estrutural"
+      ],
+      "fields": {
+        "status": "rascunho",
+        "evidence": "moderada",
+        "time": 7,
+        "energy": 72
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -1,
+      "r": 3,
+      "clusterId": "info",
+      "axisPosition": null
+    },
+    {
+      "id": "metrics",
+      "title": "Métricas",
+      "summary": "Representações quantitativas usadas para acompanhar fenômenos.",
+      "description": "Representações quantitativas usadas para acompanhar fenômenos.",
+      "bodyMarkdown": "## Métricas\n\nRepresentações quantitativas usadas para acompanhar fenômenos.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "info",
+        "conceito"
+      ],
+      "fields": {
+        "status": "em-analise",
+        "evidence": "forte",
+        "time": 8,
+        "energy": 89
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": -1,
+      "r": 2,
+      "clusterId": "info",
+      "axisPosition": null
+    },
+    {
+      "id": "sensemaking",
+      "title": "Sensemaking",
+      "summary": "Produção coletiva de interpretações sobre situações ambíguas.",
+      "description": "Produção coletiva de interpretações sobre situações ambíguas.",
+      "bodyMarkdown": "## Sensemaking\n\nProdução coletiva de interpretações sobre situações ambíguas.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "info",
+        "conceito"
+      ],
+      "fields": {
+        "status": "validado",
+        "evidence": "exploratoria",
+        "time": 9,
+        "energy": 26
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 0,
+      "r": 1,
+      "clusterId": "info",
+      "axisPosition": null
+    },
+    {
+      "id": "memory",
+      "title": "Memória organizacional",
+      "summary": "Persistência de conhecimento para além de indivíduos.",
+      "description": "Persistência de conhecimento para além de indivíduos.",
+      "bodyMarkdown": "## Memória organizacional\n\nPersistência de conhecimento para além de indivíduos.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "info",
+        "conceito"
+      ],
+      "fields": {
+        "status": "rascunho",
+        "evidence": "moderada",
+        "time": 10,
+        "energy": 43
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 1,
+      "r": 1,
+      "clusterId": "info",
+      "axisPosition": null
+    },
+    {
+      "id": "noise",
+      "title": "Ruído",
+      "summary": "Informação que compete com sinais relevantes.",
+      "description": "Informação que compete com sinais relevantes.",
+      "bodyMarkdown": "## Ruído\n\nInformação que compete com sinais relevantes.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "info",
+        "estrutural"
+      ],
+      "fields": {
+        "status": "em-analise",
+        "evidence": "forte",
+        "time": 1,
+        "energy": 60
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 2,
+      "r": 1,
+      "clusterId": "info",
+      "axisPosition": null
+    },
+    {
+      "id": "resources",
+      "title": "Recursos",
+      "summary": "Meios materiais, temporais, cognitivos e financeiros.",
+      "description": "Meios materiais, temporais, cognitivos e financeiros.",
+      "bodyMarkdown": "## Recursos\n\nMeios materiais, temporais, cognitivos e financeiros.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "res",
+        "conceito"
+      ],
+      "fields": {
+        "status": "validado",
+        "evidence": "exploratoria",
+        "time": 2,
+        "energy": 77
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 6,
+      "r": -2,
+      "clusterId": "res",
+      "axisPosition": null
+    },
+    {
+      "id": "time",
+      "title": "Tempo",
+      "summary": "Capacidade temporal disponível para executar, coordenar e aprender.",
+      "description": "Capacidade temporal disponível para executar, coordenar e aprender.",
+      "bodyMarkdown": "## Tempo\n\nCapacidade temporal disponível para executar, coordenar e aprender.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "res",
+        "conceito"
+      ],
+      "fields": {
+        "status": "rascunho",
+        "evidence": "moderada",
+        "time": 3,
+        "energy": 94
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 7,
+      "r": -2,
+      "clusterId": "res",
+      "axisPosition": null
+    },
+    {
+      "id": "budget",
+      "title": "Orçamento",
+      "summary": "Capacidade financeira alocada a um domínio de ação.",
+      "description": "Capacidade financeira alocada a um domínio de ação.",
+      "bodyMarkdown": "## Orçamento\n\nCapacidade financeira alocada a um domínio de ação.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "res",
+        "conceito"
+      ],
+      "fields": {
+        "status": "em-analise",
+        "evidence": "forte",
+        "time": 4,
+        "energy": 31
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 6,
+      "r": -1,
+      "clusterId": "res",
+      "axisPosition": null
+    },
+    {
+      "id": "capacity",
+      "title": "Capacidade",
+      "summary": "Quantidade efetiva de trabalho ou processamento disponível.",
+      "description": "Quantidade efetiva de trabalho ou processamento disponível.",
+      "bodyMarkdown": "## Capacidade\n\nQuantidade efetiva de trabalho ou processamento disponível.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "res",
+        "estrutural"
+      ],
+      "fields": {
+        "status": "validado",
+        "evidence": "exploratoria",
+        "time": 5,
+        "energy": 48
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 5,
+      "r": -1,
+      "clusterId": "res",
+      "axisPosition": null
+    },
+    {
+      "id": "skills",
+      "title": "Capacidades",
+      "summary": "Conhecimentos e habilidades incorporados a pessoas e coletivos.",
+      "description": "Conhecimentos e habilidades incorporados a pessoas e coletivos.",
+      "bodyMarkdown": "## Capacidades\n\nConhecimentos e habilidades incorporados a pessoas e coletivos.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "res",
+        "conceito"
+      ],
+      "fields": {
+        "status": "rascunho",
+        "evidence": "moderada",
+        "time": 6,
+        "energy": 65
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 5,
+      "r": -2,
+      "clusterId": "res",
+      "axisPosition": null
+    },
+    {
+      "id": "access",
+      "title": "Acesso",
+      "summary": "Possibilidade efetiva de mobilizar recursos relevantes.",
+      "description": "Possibilidade efetiva de mobilizar recursos relevantes.",
+      "bodyMarkdown": "## Acesso\n\nPossibilidade efetiva de mobilizar recursos relevantes.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "res",
+        "conceito"
+      ],
+      "fields": {
+        "status": "em-analise",
+        "evidence": "forte",
+        "time": 7,
+        "energy": 82
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 6,
+      "r": -3,
+      "clusterId": "res",
+      "axisPosition": null
+    },
+    {
+      "id": "slack",
+      "title": "Folga",
+      "summary": "Recursos não comprometidos que permitem adaptação.",
+      "description": "Recursos não comprometidos que permitem adaptação.",
+      "bodyMarkdown": "## Folga\n\nRecursos não comprometidos que permitem adaptação.\n\n### Questões para análise\n\n- Como este elemento se manifesta na prática?\n- Quais relações estruturais o sustentam?\n- Que evidências permitem avaliá-lo?\n\n> Este conteúdo é editável em Markdown e pode crescer até se tornar uma nota, análise, relatório ou metodologia completa.",
+      "tags": [
+        "res",
+        "conceito"
+      ],
+      "fields": {
+        "status": "validado",
+        "evidence": "exploratoria",
+        "time": 8,
+        "energy": 99
+      },
+      "visual": {
+        "mode": "text",
+        "image": {
+          "src": "",
+          "fit": "cover",
+          "position": "50% 50%",
+          "overlay": 0.38
+        }
+      },
+      "q": 7,
+      "r": -3,
+      "clusterId": "res",
+      "axisPosition": null
+    }
+  ],
+  "clusters": [
+    {
+      "id": "work",
+      "title": "Organização do trabalho",
+      "description": "Como atividades, responsabilidades e autonomia são distribuídas.",
+      "bodyMarkdown": "## Organização do trabalho\n\nComo atividades, responsabilidades e autonomia são distribuídas.",
+      "color": "#bf7448",
+      "tags": [],
+      "fields": {},
+      "label": {
+        "mode": "auto",
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    },
+    {
+      "id": "gov",
+      "title": "Governança",
+      "description": "Regras, mandatos e mecanismos de decisão e contestação.",
+      "bodyMarkdown": "## Governança\n\nRegras, mandatos e mecanismos de decisão e contestação.",
+      "color": "#6f85ac",
+      "tags": [],
+      "fields": {},
+      "label": {
+        "mode": "auto",
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    },
+    {
+      "id": "tech",
+      "title": "Tecnologia",
+      "description": "Infraestruturas e mediações técnicas que condicionam a ação.",
+      "bodyMarkdown": "## Tecnologia\n\nInfraestruturas e mediações técnicas que condicionam a ação.",
+      "color": "#5f9887",
+      "tags": [],
+      "fields": {},
+      "label": {
+        "mode": "auto",
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    },
+    {
+      "id": "coord",
+      "title": "Coordenação",
+      "description": "Mecanismos que produzem coerência entre atividades interdependentes.",
+      "bodyMarkdown": "## Coordenação\n\nMecanismos que produzem coerência entre atividades interdependentes.",
+      "color": "#a18e37",
+      "tags": [],
+      "fields": {},
+      "label": {
+        "mode": "auto",
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    },
+    {
+      "id": "info",
+      "title": "Informação",
+      "description": "Produção, circulação e interpretação de informação no sistema.",
+      "bodyMarkdown": "## Informação\n\nProdução, circulação e interpretação de informação no sistema.",
+      "color": "#8f78a8",
+      "tags": [],
+      "fields": {},
+      "label": {
+        "mode": "auto",
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    },
+    {
+      "id": "res",
+      "title": "Recursos",
+      "description": "Meios materiais, temporais e cognitivos necessários à ação.",
+      "bodyMarkdown": "## Recursos\n\nMeios materiais, temporais e cognitivos necessários à ação.",
+      "color": "#5f9bad",
+      "tags": [],
+      "fields": {},
+      "label": {
+        "mode": "auto",
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "r1",
+      "source": "work",
+      "target": "gov",
+      "label": "estrutura",
+      "routing": {
+        "mode": "auto",
+        "offset": {
+          "along": 0,
+          "perpendicular": 0.2
+        }
+      }
+    },
+    {
+      "id": "r2",
+      "source": "gov",
+      "target": "tech",
+      "label": "regula",
+      "routing": {
+        "mode": "auto",
+        "offset": {
+          "along": 0,
+          "perpendicular": 0.2
+        }
+      }
+    },
+    {
+      "id": "r3",
+      "source": "tech",
+      "target": "res",
+      "label": "sustenta",
+      "routing": {
+        "mode": "auto",
+        "offset": {
+          "along": 0,
+          "perpendicular": 0.2
+        }
+      }
+    },
+    {
+      "id": "r4",
+      "source": "res",
+      "target": "info",
+      "label": "alimenta",
+      "routing": {
+        "mode": "auto",
+        "offset": {
+          "along": 0,
+          "perpendicular": 0.2
+        }
+      }
+    },
+    {
+      "id": "r5",
+      "source": "info",
+      "target": "coord",
+      "label": "retroalimenta",
+      "routing": {
+        "mode": "auto",
+        "offset": {
+          "along": 0,
+          "perpendicular": 0.2
+        }
+      }
+    },
+    {
+      "id": "r6",
+      "source": "coord",
+      "target": "work",
+      "label": "articula",
+      "routing": {
+        "mode": "auto",
+        "offset": {
+          "along": 0,
+          "perpendicular": 0.2
+        }
+      }
+    }
+  ],
+  "annotations": [],
+  "nextEntity": 1,
+  "nextCluster": 1,
+  "nextRelation": 1,
+  "nextAnnotation": 1,
+  "paletteCursor": 6
+}

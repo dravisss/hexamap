@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+build/
+dist/
+node_modules/
+*.js.map
+*.egg-info/

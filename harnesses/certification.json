@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.0.0",
+  "surface": "stdio-mcp+skills+cli",
+  "harnesses": {
+    "codex": {
+      "installed": true,
+      "command": "codex",
+      "versionProbe": [
+        "codex-cli 0.153.2"
+      ],
+      "exitCode": 0
+    },
+    "claude-code": {
+      "installed": true,
+      "command": "claude",
+      "versionProbe": [
+        "2.1.86 (Claude Code)"
+      ],
+      "exitCode": 0
+    },
+    "hermes": {
+      "installed": true,
+      "command": "hermes",
+      "versionProbe": [
+        "Hermes Agent v0.21.3 (2026.9.14) · upstream 2179a279",
+        "Install method: git"
+      ],
+      "exitCode": 0
+    },
+    "opencode": {
+      "installed": true,
+      "command": "opencode",
+      "versionProbe": [
+        "1.17.18"
+      ],
+      "exitCode": 0
+    },
+    "gemini-cli": {
+      "installed": true,
+      "command": "gemini",
+      "versionProbe": [
+        "0.40.1"
+      ],
+      "exitCode": 0
+    }
+  },
+  "protocol": {
+    "exitCode": 0,
+    "initialize": {
+      "name": "hexmap-studio",
+      "version": "0.1.10"
+    },
+    "tools": [
+      "create_project",
+      "inspect_project",
+      "validate_project",
+      "compose_project",
+      "render_project",
+      "capture_project",
+      "audit_project",
+      "export_project",
+      "import_project",
+      "publish_project"
+    ],
+    "readOnlyCall": true,
+    "stderr": ""
+  },
+  "verdict": "PASS",
+  "limits": [
+    "Protocol certification does not guarantee identical editorial judgment across models."
+  ]
+}

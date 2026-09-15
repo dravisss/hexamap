@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "hexmap": {
+      "command": "hexmap-mcp",
+      "args": [],
+      "env": {}
+    }
+  }
+}

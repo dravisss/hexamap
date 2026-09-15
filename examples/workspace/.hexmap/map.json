@@ -1,0 +1,24 @@
+{
+  "workspaceVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "id": "exemplo-local-first",
+  "title": "Exemplo Local-first",
+  "layout": {
+    "type": "free",
+    "viewport": { "x": 0, "y": 0, "zoom": 1 },
+    "axes": {
+      "xLabel": "Eixo X", "xMin": 0, "xMax": 10,
+      "yLabel": "Eixo Y", "yMin": 0, "yMax": 100,
+      "frame": { "x": 250, "y": 170, "width": 1700, "height": 980 }
+    }
+  },
+  "fieldDefinitions": [],
+  "styleRules": { "colorByField": null, "colorMap": {} },
+  "hexagons": [
+    { "id": "autonomia", "sourcePath": "notas/autonomia.md", "q": -1, "r": 0, "clusterId": "trabalho", "axisPosition": null, "visual": { "mode": "text", "image": { "src": "", "fit": "cover", "position": "50% 50%", "overlay": 0.38 } } },
+    { "id": "governanca", "sourcePath": "notas/governanca.md", "q": 1, "r": 0, "clusterId": "estrutura", "axisPosition": null, "visual": { "mode": "text", "image": { "src": "", "fit": "cover", "position": "50% 50%", "overlay": 0.38 } } }
+  ],
+  "clusters": [],
+  "relations": [],
+  "annotations": []
+}
